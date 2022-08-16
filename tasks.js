@@ -22,3 +22,10 @@ function sortByLength (arr) {
     }
   return arr
 };
+
+
+// Square Every Digit
+function squareDigits(num){
+  var str = String(num).split('').reduce((acc, el) => acc + Number(el) * Number(el), '')
+  return parseInt(str)
+}
