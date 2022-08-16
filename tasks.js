@@ -77,3 +77,19 @@ function firstNonRepeatingLetter(s) {
     } 
   }
 }
+
+// Convert string to camel case
+function toCamelCase(str){
+  //string = "the-stealth-warrior"
+ let sw = false;
+ 
+ return str.split('').reduce((acc, el) => {
+     if(el === '-' || el === '_') {
+         sw = true;
+     } else {
+        acc += sw ?  el.toUpperCase() : el;
+        sw = false;
+     }
+     return acc;
+ },'')
+}
