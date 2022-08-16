@@ -93,3 +93,9 @@ function toCamelCase(str){
      return acc;
  },'')
 }
+
+// Equal Sides Of An Array
+function findEvenIndex(arr) {
+  var sum = (arr) => arr.reduce((acc, el) => acc + el, 0)
+  return arr.findIndex((_, i) => sum(arr.slice(0, i)) === sum(arr.slice(i + 1)))
+}
