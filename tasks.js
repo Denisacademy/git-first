@@ -176,3 +176,8 @@ function oddOrEven(array) {
 function minMax(arr){
   return [Math.min(...arr),Math.max(...arr)]; // fix me!
 }
+
+// Form The Minimum
+function minValue(values){
+  return Number([...new Set(values)].sort((a, b) => a - b).join(''));
+}
