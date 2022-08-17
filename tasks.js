@@ -151,3 +151,9 @@ function findUniq(arr) {
         if(obj[key] === 1) return Number(key)
     }   
 }
+
+// Two to One
+function longest(s1, s2) {
+  // your code
+  return[...new Set(s1+s2)].sort().join('')
+}
