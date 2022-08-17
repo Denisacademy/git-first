@@ -136,3 +136,18 @@ function isAnagram(left, right) {
   right_word_counter = count_letters(right)
   return are_counters_equal(left_word_counter, right_word_counter)
 }
+
+// Find the unique number
+
+function findUniq(arr) {
+  // do magic
+    const obj = arr.reduce((obj, el) => {
+        if(!obj[el]) obj[el] = 1;
+        else obj[el] += 1;
+        return obj;
+    },{})
+  
+    for(let key in obj) {
+        if(obj[key] === 1) return Number(key)
+    }   
+}
