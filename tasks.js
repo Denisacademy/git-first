@@ -181,3 +181,16 @@ function minMax(arr){
 function minValue(values){
   return Number([...new Set(values)].sort((a, b) => a - b).join(''));
 }
+
+// factorial once more
+function factorial(n) {
+  // Calculate the factorial here
+  if(n === 0 || n === 1) return 1;
+  if(n < 0 || n > 12) throw new RangeError;
+  var fc = 1;
+    while(n > 1) {
+        fc *= n;
+        n--;
+    }
+    return fc;
+}
