@@ -163,3 +163,10 @@ function include(arr, item){
   // ...
   return arr.includes(item)
 }
+
+// Odd or Even?
+function oddOrEven(array) {
+  //enter code here
+ if(!array.length) return 'even'
+ return array.reduce((acc, el) => acc + el, 0) % 2 === 0 ? 'even' : 'odd'
+}
