@@ -109,3 +109,30 @@ function likes(names) {
   if(names.length === 3)return  `${names[0]}, ${names[1]} and ${names[2]} like this`
   return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
 }
+
+
+
+// Anagram v2
+function count_letters(word) {
+  word = word.toLowerCase()
+  let result = {}
+  for (let char of word) {
+      if (result[char]) result[char] += 1;
+      else result[char] = 1;
+  }
+
+  return result
+}
+
+function are_counters_equal(left, right) {
+  for (let key in left) if(left[key] !== right[key]) return false;
+
+  return true;
+}
+
+function isAnagram(left, right) {
+  if(left.length !== right.length) return false;
+  left_word_counter = count_letters(left)
+  right_word_counter = count_letters(right)
+  return are_counters_equal(left_word_counter, right_word_counter)
+}
