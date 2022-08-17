@@ -157,3 +157,9 @@ function longest(s1, s2) {
   // your code
   return[...new Set(s1+s2)].sort().join('')
 }
+
+//Enumerable Magic #3 - Does My List Include This?
+function include(arr, item){
+  // ...
+  return arr.includes(item)
+}
