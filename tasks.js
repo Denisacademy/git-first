@@ -170,3 +170,9 @@ function oddOrEven(array) {
  if(!array.length) return 'even'
  return array.reduce((acc, el) => acc + el, 0) % 2 === 0 ? 'even' : 'odd'
 }
+
+// The highest profit wins!
+
+function minMax(arr){
+  return [Math.min(...arr),Math.max(...arr)]; // fix me!
+}
