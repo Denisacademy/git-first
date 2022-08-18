@@ -200,3 +200,14 @@ function apple(x){
   if(Math.pow(x, 2) > 1000) return `It's hotter than the sun!!`
   return `Help yourself to a honeycomb Yorkie for the glovebox.`
 }
+
+
+//Flatten and sort an array
+
+function flattenAndSort(array) {
+  // Good luck, brave code warrior!
+  return array.reduce((acc, el) => {
+      while(el.length) acc.push(el.pop())
+      return acc;
+  },[]).sort((a, b) => a - b)
+}
