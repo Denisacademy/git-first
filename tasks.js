@@ -255,3 +255,10 @@ function strCount(str, letter){
   return count;
   //return str.split(letter).length - 1;
 }
+//removeSmallest
+function removeSmallest(numbers) {
+  //throw "TODO: removeSmallest";
+  if(!numbers.length) return []
+  var idxOfminNum = numbers.indexOf((Math.min(...numbers)))
+  return [...numbers.slice(0, idxOfminNum), ...numbers.slice(idxOfminNum + 1)]
+} 
