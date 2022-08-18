@@ -216,3 +216,8 @@ function flattenAndSort(array) {
 function mergeArrays(arr1, arr2) {
   return [...new Set([...arr1, ...arr2].sort((a, b) => a - b))]
 }
+
+//Regular Ball Super Ball
+var Ball = function(ballType) {
+  this.ballType = ballType || 'regular';
+};
