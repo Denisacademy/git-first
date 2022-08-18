@@ -221,3 +221,10 @@ function mergeArrays(arr1, arr2) {
 var Ball = function(ballType) {
   this.ballType = ballType || 'regular';
 };
+
+// String Clean
+function stringClean(s){
+  if(!s) return ''
+  return s.split('').filter(el => isNaN(parseInt(el))).join('')
+  //return s.match/replace(/[^1-9]/g).join('')
+}
