@@ -235,3 +235,15 @@ function doubleChar(str) {
   // Your code here
   return str.split('').reduce((acc, el) => acc + el + el, "");
 } 
+
+// Find the capitals
+var capitals = function (word) {
+  // Write your code here
+  return word.split('').map((el, ind) => {
+    if(el.charCodeAt() <= 65 || el.charCodeAt() <= 90) {
+        return ind
+    }
+    return;
+  }).filter(el => !isNaN(el)) 
+};
+
