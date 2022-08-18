@@ -247,3 +247,11 @@ var capitals = function (word) {
   }).filter(el => !isNaN(el)) 
 };
 
+// All Star Code Challenge
+function strCount(str, letter){  
+  //code here
+  var count = 0;
+  for(var l of str) if(l === letter) count++;
+  return count;
+  //return str.split(letter).length - 1;
+}
