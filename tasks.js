@@ -262,3 +262,9 @@ function removeSmallest(numbers) {
   var idxOfminNum = numbers.indexOf((Math.min(...numbers)))
   return [...numbers.slice(0, idxOfminNum), ...numbers.slice(idxOfminNum + 1)]
 } 
+
+// Reverse words
+function reverseWords(str) {
+  // Go for it
+  return str.split(' ').map(el => el.split('').reverse().join('')).join(' ')
+}
