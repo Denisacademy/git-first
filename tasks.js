@@ -211,3 +211,8 @@ function flattenAndSort(array) {
       return acc;
   },[]).sort((a, b) => a - b)
 }
+
+// Merge two sorted arrays into one
+function mergeArrays(arr1, arr2) {
+  return [...new Set([...arr1, ...arr2].sort((a, b) => a - b))]
+}
