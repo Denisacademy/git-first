@@ -227,4 +227,11 @@ function stringClean(s){
   if(!s) return ''
   return s.split('').filter(el => isNaN(parseInt(el))).join('')
   //return s.match/replace(/[^1-9]/g).join('')
+  //match return null if string empty
 }
+
+// double Char
+function doubleChar(str) {
+  // Your code here
+  return str.split('').reduce((acc, el) => acc + el + el, "");
+} 
