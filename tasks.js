@@ -268,3 +268,8 @@ function reverseWords(str) {
   // Go for it
   return str.split(' ').map(el => el.split('').reverse().join('')).join(' ')
 }
+
+//Shortest Word
+function findShort(s){
+  return Math.min(...s.split(' ').map(el=>el.length));
+}
