@@ -273,3 +273,14 @@ function reverseWords(str) {
 function findShort(s){
   return Math.min(...s.split(' ').map(el=>el.length));
 }
+// Find the stray number
+function stray(numbers) {
+  var obj = numbers.reduce((acc, el) => {
+    if(!acc.hasOwnProperty(el)) acc[el] = 0; 
+    else acc[el] += 1;
+    return acc;
+},{})
+  
+  for(var key in obj) 
+    if(obj[key] === 0) return parseInt(key);
+}
