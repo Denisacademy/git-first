@@ -279,8 +279,13 @@ function stray(numbers) {
     if(!acc.hasOwnProperty(el)) acc[el] = 0; 
     else acc[el] += 1;
     return acc;
-},{})
+  },{})
   
-  for(var key in obj) 
-    if(obj[key] === 0) return parseInt(key);
+  for(var key in obj) if(obj[key] === 0) return parseInt(key);
+  // Number(numbers.filter((el, i, arr) => arr.indexOf(el) === arr.lastIndexOf(el)))
+}
+
+// Trinagle
+function isTriangle(a,b,c) {
+  return (a + b > c && a + c > b && b + c > a) 
 }
