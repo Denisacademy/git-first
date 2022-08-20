@@ -348,3 +348,11 @@ function getCount(str) {
 
   return str.split('').filter(c => "aeiouAEIOU".includes(c)).length;
  }
+ 
+//Highest and Lowest
+function highAndLow(numbers){
+  // ...
+  console.log(numbers)
+  return [Math.max(...numbers.split(' ')) , Math.min(...numbers.split(' '))].join(' ')
+
+}
