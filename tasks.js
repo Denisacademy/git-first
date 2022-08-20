@@ -289,3 +289,62 @@ function stray(numbers) {
 function isTriangle(a,b,c) {
   return (a + b > c && a + c > b && b + c > a) 
 }
+
+// doMath
+function doMath(s) {
+  //your code here
+ let letters  = '', numbers = '';  
+ //numbers = s.split('').filter(el => !isNaN(el)) 
+ //letters = s.split('').filter(el => isNaN(el))
+ 
+ for(let key of s) isNaN(key) ? letters += key : numbers += key; 
+  
+ // let structure = numbers.join('').split(' ')
+ //    .map((el, idx) => [Number(el), letters[idx]])
+ //  //sort
+ //  structure.sort((a, b) => a[1].localeCompare(b[1]))
+
+//***
+  const structure = 
+    numbers
+    .split(' ')
+    .map((el, idx) => [Number(el), letters[idx]])
+    .sort((a, b) => a[1].localeCompare(b[1]));
+//*** 
+
+  function calculateResult(data) {
+    let countOper = 0;
+    const oper = ['+', '-', '*', '/'];
+
+    return Math.round(data.slice(1).reduce((acc, num) => {
+      if(countOper === oper.length) countOper = 0;
+
+      if(oper[countOper] == '+') {
+          acc += num[0]
+      }
+      if(oper[countOper] == '-') {
+          acc -= num[0]
+      }
+      if(oper[countOper] == '*') {
+          acc *= num[0]
+      }
+      if(oper[countOper] == '/') {
+          acc /= num[0]
+      }
+
+      countOper++;
+      return acc;
+    }, structure[0][0]))
+  }
+
+  return calculateResult(structure);
+    
+}
+
+
+// Vowel Count
+function getCount(str) {
+  //return str.split('').filter(el => el === 'a' || el === 'e' || el === 'i' || el === 'o' || el === 'u').length
+
+  return str.split('').filter(c => "aeiouAEIOU".includes(c)).length;
+ }
