@@ -361,3 +361,17 @@ function highAndLow(numbers){
 String.prototype.toJadenCase = function () {
   return this.split(" ").map(el => el[0].toUpperCase() + el.slice(1)).join(" ");
 };
+
+// checkExam
+function checkExam(a, b) {
+  //debugger
+  var points = 0;
+
+  a.forEach((el, idx) => {
+      if(el === b[idx]) points += 4;
+      else if(el && b[idx] !== '') points -= 1;
+      else points -= 0  
+  })
+  
+  return points < 0 ?  0 : points;
+}
