@@ -376,33 +376,6 @@ function checkExam(a, b) {
   return points < 0 ?  0 : points;
 }
 
-
-//not working
-function wave(str = ' gap ') {
-  var result = [];
-  
-  var isSpace = false;
-  if(str[0] === ' ') {
-      str = str.trim();
-      isSpace = !isSpace;
-  }
-  
-  for(var i = 0; i < str.length  ; i++) {
-      var strArr = str.split('');
-          if(str[i] === ' ') {
-              i += 1;
-              strArr[i] = str[i].toUpperCase();
-              console.log(str[i])
-              result.push(strArr.join(''))
-          } 
-           else {
-              strArr[i] = str[i].toUpperCase();
-              result.push(strArr.join(''))
-           }
-  }
-  return isSpace ? result.map(el => ' ' + el + ' ') : result; 
-}
-
 // Wave
 function wave(str) {
   const mass = [];
