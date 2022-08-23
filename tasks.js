@@ -387,3 +387,44 @@ function wave(str) {
   }
   return mass;
 }
+
+// Roman Numerals Decoder
+function solution(roman){
+  var count = 0;
+  var solut = {I: 1,  V: 5,  X: 10, L: 50, C: 100, D: 500, M: 1000 }
+  roman.split('').forEach(el => {
+     switch(el) {
+      case 'I':
+          if(roman.length === 1 && el === 'I') {
+            count += solut[el]
+          }
+          else if(count === 0) {
+            count -= solut[el]
+          }else {
+            count += solut[el]
+          }
+          break;
+      case 'V':
+          count += solut[el]
+          break;
+      case 'X':
+          count += solut[el]
+          break;
+      case 'L':
+          count += solut[el]
+          break;
+      case 'C':
+          count += solut[el]
+          break;
+      case 'D':
+          count += solut[el]
+          break;
+      case 'M':
+          count += solut[el]
+          break;
+      default: 
+         break;
+      }
+    })
+  return count;
+}
