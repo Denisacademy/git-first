@@ -377,7 +377,7 @@ function checkExam(a, b) {
 }
 
 
-//
+//not working
 function wave(str = ' gap ') {
   var result = [];
   
