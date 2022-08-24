@@ -290,7 +290,7 @@ function isTriangle(a,b,c) {
   return (a + b > c && a + c > b && b + c > a) 
 }
 
-// doMath
+// doMath   //rarkapagnu@vusra.com
 function doMath(s) {
   //your code here
  let letters  = '', numbers = '';  
@@ -376,7 +376,7 @@ function checkExam(a, b) {
   return points < 0 ?  0 : points;
 }
 
-// Wave
+// Wave   
 function wave(str) {
   const mass = [];
   for(let i = 0; i < str.length; i++) {
@@ -427,4 +427,15 @@ function solution(roman){
       }
     })
   return count;
+}
+
+// Assemble string
+function assembleString(array) {
+  return !array || !array.length  ? '' 
+    : array.reduce((acc, el) => {
+          el.split('').forEach((letter, idx) => {
+              if(letter !== '*') acc[idx] = letter;
+          })
+          return acc;
+      }, Array(array[0].length).fill('#')).join('');
 }
