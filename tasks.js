@@ -237,6 +237,9 @@ function doubleChar(str) {
 } 
 
 // Find the capitals
+//extra way 
+`asFasDsdEs`.split('').filter((el, idx, arr) => el === arr[idx].toUpperCase())
+
 var capitals = function (word) {
   // Write your code here
   return word.split('').map((el, ind) => {
