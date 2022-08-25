@@ -442,3 +442,58 @@ function assembleString(array) {
           return acc;
       }, Array(array[0].length).fill('#')).join('');
 }
+
+// doMath two version
+function doMath(s) {
+  return Math.round(
+    Array.from(s
+    .split(" ")
+    .entries())
+    .sort(([i, a], [j, b]) => /[a-z]/.exec(a)[0].localeCompare(/[a-z]/.exec(b)[0]) || i - j)
+    .map(([, x]) => +x.replace(/\D/g, ""))
+    .reduce((result, x, i) => [
+      result + x,
+      result - x,
+      result * x,
+      result / x
+    ][--i % 4]));
+}
+
+function doMathV2sort(s) {
+  
+  //    const numbersOne = Array.from(s
+  //     .split(" ").entries())
+  //    //console.log(numbersOne)
+  //     .sort(([i, a], [j, b]) => /[a-z]/.exec(a)[0].localeCompare(/[a-z]/.exec(b)[0]) || i - j)
+  //     .map(([, x]) => +x.replace(/\D/g, ""))
+      
+      let letters = '', strNumbers = '';  
+      for(let key of s) isNaN(key) ? letters += key : strNumbers += key; 
+    
+      //***
+      const numbersTwo = strNumbers.split(' ')
+      .map((el, idx) => [idx, Number(el), letters[idx]])
+      .sort((a, b) => a[2].localeCompare(b[2]) || a[0] - b[0])
+      .map(num => num[1])
+      
+  
+      let calculateOpeartion = 0;
+      const operation = ['+', '-', '*', '/'];
+  
+      return Math.round(numbersTwo.slice(1).reduce((acc, num) => {
+        if(calculateOpeartion === operation.length) calculateOpeartion = 0;
+  
+        if(operation[calculateOpeartion] == '+') acc += num;
+      
+        if(operation[calculateOpeartion] == '-') acc -= num;
+        
+        if(operation[calculateOpeartion] == '*') acc *= num;
+        
+        if(operation[calculateOpeartion] == '/') acc /= num;
+  
+        calculateOpeartion++;
+        return acc;
+        
+      }, numbersTwo[0]))
+    
+    }
