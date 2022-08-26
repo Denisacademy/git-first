@@ -497,3 +497,16 @@ function doMathV2sort(s) {
       }, numbersTwo[0]))
     
     }
+
+    // reduce
+    //var add = (accumalator, currentValue) => accumalator + currentValue // reducer function
+
+var reduce = (array, reducer = (accumalator, currentValue) => accumalator + currentValue, initValue) => {
+  var accumulator = (!initValue) ? array.shift() : initValue;
+  
+  array.forEach(el => accumulator = reducer(accumulator, el))
+  return accumulator
+  
+}
+
+reduce([1, 2, 3]) // => 6
