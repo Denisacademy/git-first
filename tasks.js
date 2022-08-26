@@ -501,12 +501,40 @@ function doMathV2sort(s) {
     // reduce
     //var add = (accumalator, currentValue) => accumalator + currentValue // reducer function
 
-var reduce = (array, reducer = (accumalator, currentValue) => accumalator + currentValue, initValue) => {
-  var accumulator = (!initValue) ? array.shift() : initValue;
-  
-  array.forEach(el => accumulator = reducer(accumulator, el))
+//var add = (accumalator, currentValue) => accumalator + currentValue // reducer function
+
+var reduce = (array, cb = (accumalator, currentValue, idx, array) => accumalator + currentValue, initValue) => {
+    //[ 1 , 2 , 3] 
+  var accumulator = (!initValue) ? array.shift() : initValue; //1
+        //[2, 3]
+  array.forEach((el, idx, array) => { 
+                    // ( 1,   2)     
+  accumulator = cb(accumulator, el, idx, array) //add callback 1 + 2 // 
+  })
+
   return accumulator
-  
+
 }
 
 reduce([1, 2, 3]) // => 6
+
+// reduce V2
+function reduce(arr, cb, init) {
+  init = !init ? arr.shift() : init;
+  //init = !init ? arr[0] : init;
+  for(var i = 0; i < arr.length; i++) init = cb(init, arr[i])
+  
+  return init;
+}
+
+reduce([1, 2, 3], (init, el)  => init + el, 10)
+
+
+//removeDublicate
+function removeDublicate(data) {
+  var filterData = [];
+  data.filter(el => {
+      if(!filterData.includes(el)) filterData.push(el)
+  })
+  return filterData;
+}
