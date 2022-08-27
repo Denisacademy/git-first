@@ -538,3 +538,12 @@ function removeDublicate(data) {
   })
   return filterData;
 }
+
+// Remove all Exclamation Marks
+function remove (string) {  
+  let pos = string.length;
+  while(string.endsWith('!', pos)) {
+    pos--;
+  }
+return string.slice(0, pos);
+}
