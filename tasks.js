@@ -547,3 +547,5 @@ function remove (string) {
   }
 return string.slice(0, pos);
 }
+
+// Sum without highest and lowest number
