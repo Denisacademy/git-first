@@ -549,3 +549,15 @@ return string.slice(0, pos);
 }
 
 // Sum without highest and lowest number
+function sumArray(array) {
+  if(array == null || !array.length || array.length <= 2) return 0
+  return array.sort((a, b) => a - b)
+  .slice(1, array.length - 1)
+  .reduce((acc, el) => acc + el)
+}
+
+// largestPairSum
+function largestPairSum (numbers) {
+  //TODO: Write your Code here
+  return numbers.sort((a, b) => a - b).slice(-2).reduce((acc, n) => acc + n);
+}
