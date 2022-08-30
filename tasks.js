@@ -558,6 +558,50 @@ function sumArray(array) {
 
 // largestPairSum
 function largestPairSum (numbers) {
-  //TODO: Write your Code here
   return numbers.sort((a, b) => a - b).slice(-2).reduce((acc, n) => acc + n);
 }
+
+// isPrime
+function isPrime(n = 10) {
+  for(var i = 2; i < n; i++) { //if number is 2 then false
+      if(n % 2 === 0) { 
+          return false;
+      }
+  }
+
+  return n > 1; //2 > 1 => true
+}
+
+// isPrimeV2
+function primeV2(n = 10) {
+    
+  for(var i = 2, max = Math.sqrt(n); i <= max; i++) {
+      if(n % i === 0) {
+          return false;
+      }
+  }
+
+  return n > 1;
+}
+
+// getPrimes
+function getPrimes(num = 5) {
+    const seive = [], primes = [];
+  
+    for(let i = 2; i <= num; i++) { 
+      if(!seive[i]) { //4 is
+        primes.push(i) //2 //3 //5
+              //j = 2 * 2  4 <=  5   4 += 2
+              //j = 6      6 <=  5
+  
+              //j = 3 * 3  9 <=  5
+  
+             //j = 5 * 5   25 <= 5 
+        for(let j = i * i; j <= num; j += i) { //j += 2
+          seive[j] = true; // seive[4] = true;  
+        }
+      }
+    }
+      
+    return [primes, seive];
+  }
