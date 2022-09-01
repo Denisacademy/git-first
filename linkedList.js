@@ -84,6 +84,14 @@ class LinkedList {
     this.length -= 1;
   }
 
+  indexOf(value) {
+    let current = this.head;
+    while(current) {
+      console.log(current.data)
+      current = current.next;
+    }
+  }
+
   removeFromTo(start, end) {
     let count = 0;
     let current = this.head;
