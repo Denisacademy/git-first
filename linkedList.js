@@ -59,6 +59,23 @@ class LinkedList {
     this.length--;
   }
 
+  removeNodeByName(value) {
+    let current = this.head;
+    let count = 0;
+
+    while (count < this.length) {
+      if (current.data === value) {
+        //console.log(current.data, value)
+        this.removeAt(count);
+        this.length--;
+        return;
+      }
+      current = current.next;
+      count++;
+    }
+    return -1;
+  }
+
   printList() {
     let current = this.head;
     while (current) {
@@ -68,6 +85,7 @@ class LinkedList {
   }
 
   removeAt(index) {
+    if (index === 0) return this.removeFirstNode();
     let current = this.head;
     let previous;
 
@@ -86,10 +104,16 @@ class LinkedList {
 
   indexOf(value) {
     let current = this.head;
-    while(current) {
-      console.log(current.data)
+    let count = 0;
+
+    while (count < this.length) {
+      if (current.data === value) {
+        return count;
+      }
+      count++;
       current = current.next;
     }
+    return -1;
   }
 
   removeFromTo(start, end) {
@@ -174,6 +198,34 @@ class LinkedList {
     //Node {data: 'React', next: null}
     this.length -= data.length;
   }
+
+  reverseV2() {
+    const nodes = this.getNodeDataAsObj();
+    this.head = null;
+    this.length = 0;
+
+    for (let i = Object.keys(nodes).length - 1; i >= 0; i--) {
+      this.addAtEnd(nodes[i]);
+    }
+
+    // for(let key in nodes) {
+    //     console.log(nodes[key])
+    //     //console.log
+    //     this.addAtEnd(nodes[key])
+    // }
+  }
+
+  getNodeDataAsObj() {
+    let current = this.head;
+    let count = 0;
+    const nodes = {};
+    while (count < this.length) {
+      nodes[count] = current.data;
+      current = current.next;
+      count++;
+    }
+    return nodes;
+  }
 }
 
 const list = new LinkedList();
@@ -183,3 +235,4 @@ list.addAtEnd('CSS');
 list.addAtEnd('HTML');
 list.addAtEnd('React');
 list.addAtBegin('Typescript');
+list.printList();
