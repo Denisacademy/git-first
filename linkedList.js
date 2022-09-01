@@ -68,15 +68,20 @@ class LinkedList {
   }
 
   removeAt(index) {
-    const current = this.head;
+    let current = this.head;
     let previous;
 
     let count = 0;
 
     while (count < index) {
+      previous = current;
       current = current.next;
       count++;
     }
+
+    previous.next = current.next;
+    //console.log(previous, current)
+    this.length -= 1;
   }
 
   removeFromTo(start, end) {
@@ -159,6 +164,7 @@ class LinkedList {
     //current = this.searchNodeAt(3);
     //console.log(current)// {data :'sinba'}
     //Node {data: 'React', next: null}
+    this.length -= data.length;
   }
 }
 
