@@ -605,3 +605,9 @@ function getPrimes(num = 5) {
       
     return [primes, seive];
   }
+
+  // Array.diff
+  function arrayDiff(a, b) {
+    return !b ? [] :  a.filter(el => !b.includes(el))
+  }
+  
