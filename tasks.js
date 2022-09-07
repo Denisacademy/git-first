@@ -645,46 +645,37 @@ for (var [i, n] of Object.entries([1, 2, 3])) {
 
 //island
 let earth = [
-  ["0", "0", "0", "0", "0"],
+  ["1", "1", "1", "0", "1"],
   ["0", "0", "1", "1", "1"],
-  ["1", "1", "1", "0", "0"],
+  ["1", "1", "1", "1", "0"], //down left down
   ["0", "1", "0", "0", "1"],
-];
-
+]; //exit up left right right up right right
+var obj = [];
 function searchLands(grid = earth) {
-  var row = grid.length;
-  var col = grid[0].length;
-  var obj = [];
-  var count = 0;
-
+  //
+  //debugger
+  var row = grid.length,
+    col = grid[0].length,
+    count = 0;
   function makeLand(grid = earth, R, C) {
-    //console.log('r', row, 'c', col)
-    grid[R][C] = "*";
+    obj.push({ y: R, x: C });
+    grid[R][C] = "*"; //R up down //C left right
 
-    if (R - 1 > 0 && grid[R - 1][C] === "1") {
-      makeLand(grid, R - 1, C);
-    }
+    if (R + 1 < row && grid[R + 1][C] === "1") makeLand(grid, R + 1, C); // DOWN
 
-    if (R + 1 < row && grid[R + 1][C] === "1") {
-      makeLand(grid, R + 1, C);
-    }
+    if (R - 1 >= 0 && grid[R - 1][C] === "1") makeLand(grid, R - 1, C); //UP
 
-    if (C - 1 > 0 && grid[R][C - 1] === "1") {
-      makeLand(grid, R, C - 1);
-    }
+    if (C - 1 >= 0 && grid[R][C - 1] === "1") makeLand(grid, R, C - 1); //LEFT
 
-    if (C + 1 < col && grid[R][C + 1] === "1") {
-      makeLand(grid, R, C + 1);
-    }
+    if (C + 1 < col && grid[R][C + 1] === "1") makeLand(grid, R, C + 1); //RIGHT
   }
 
   for (var R = 0; R < row; R++) {
-    //y
+    //y up
     for (var C = 0; C < col; C++) {
-      //x
+      //x right
       if (grid[R][C] === "1") {
         count += 1;
-        //obj.push({ 'y' : R, 'x' : C })
         makeLand(grid, R, C);
       }
     }
